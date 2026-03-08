@@ -1,8 +1,7 @@
 ﻿import { createRoot } from "react-dom/client";
-import { KcPage } from "./login";
-import { getKcContext } from "./login/KcContext";
+import { KcPage, type KcContext } from "./kc.gen";
 
-const { kcContext } = getKcContext({});
+const kcContext = window.kcContext;
 
 if (kcContext === undefined) {
   throw new Error("No Keycloak context");

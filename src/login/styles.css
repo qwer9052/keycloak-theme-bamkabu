@@ -1,14 +1,24 @@
-﻿* {
+﻿/* ===================================
+   Bamkabu Theme - Global Styles
+   =================================== */
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
   background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ffecd2 100%);
   min-height: 100vh;
+  color: #8b6f5c;
+  line-height: 1.6;
 }
+
+/* ===================================
+   Container & Layout
+   =================================== */
 
 .bamkabu-container {
   min-height: 100vh;
@@ -36,7 +46,7 @@ body {
   border-radius: 30px;
   padding: 40px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  max-width: 420px;
+  max-width: 480px;
   width: 100%;
   text-align: center;
   border: 3px solid #f5d6c6;
@@ -64,10 +74,40 @@ body {
   text-align: left;
 }
 
-/* Form Styles */
+/* ===================================
+   Typography
+   =================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  color: #8b6f5c;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+p {
+  color: #8b6f5c;
+  margin-bottom: 15px;
+}
+
+/* ===================================
+   Form Elements - All Types
+   =================================== */
+
 .bamkabu-content input[type="text"],
 .bamkabu-content input[type="password"],
-.bamkabu-content input[type="email"] {
+.bamkabu-content input[type="email"],
+.bamkabu-content input[type="tel"],
+.bamkabu-content input[type="number"],
+.bamkabu-content input[type="url"],
+.bamkabu-content textarea,
+.bamkabu-content select,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
   width: 100%;
   padding: 15px 20px;
   border: 2px solid #f5d6c6;
@@ -76,15 +116,23 @@ body {
   margin-bottom: 15px;
   transition: all 0.3s ease;
   background: #fff9f5;
+  color: #8b6f5c;
+  font-family: inherit;
 }
 
-.bamkabu-content input:focus {
+.bamkabu-content input:focus,
+.bamkabu-content textarea:focus,
+.bamkabu-content select:focus,
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   border-color: #e8a87c;
   box-shadow: 0 0 0 3px rgba(232, 168, 124, 0.2);
 }
 
-.bamkabu-content label {
+.bamkabu-content label,
+label {
   display: block;
   margin-bottom: 8px;
   color: #8b6f5c;
@@ -92,9 +140,18 @@ body {
   font-size: 14px;
 }
 
-/* Button Styles */
+/* ===================================
+   Buttons - All Types
+   =================================== */
+
 .bamkabu-content button,
-.bamkabu-content input[type="submit"] {
+.bamkabu-content input[type="submit"],
+button[type="submit"],
+input[type="submit"],
+.pf-c-button,
+.btn,
+.btn-primary,
+.kcButtonPrimaryClass {
   width: 100%;
   padding: 15px;
   background: linear-gradient(135deg, #e8a87c 0%, #d4886a 100%);
@@ -106,22 +163,74 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 10px;
+  font-family: inherit;
 }
 
 .bamkabu-content button:hover,
-.bamkabu-content input[type="submit"]:hover {
+.bamkabu-content input[type="submit"]:hover,
+button[type="submit"]:hover,
+input[type="submit"]:hover,
+.pf-c-button:hover,
+.btn:hover,
+.btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(232, 168, 124, 0.4);
 }
 
-/* Social Login Buttons */
-.bamkabu-content .social-providers {
+/* Secondary Buttons */
+.btn-secondary,
+.btn-default,
+button.cancel,
+a.btn {
+  background: white;
+  color: #8b6f5c;
+  border: 2px solid #f5d6c6;
+}
+
+.btn-secondary:hover,
+.btn-default:hover,
+button.cancel:hover,
+a.btn:hover {
+  background: #fff9f5;
+  border-color: #e8a87c;
+}
+
+/* ===================================
+   Checkbox & Radio
+   =================================== */
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #e8a87c;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.checkbox label,
+.radio label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+/* ===================================
+   Social Login Providers
+   =================================== */
+
+.social-providers,
+.kc-social-providers,
+#kc-social-providers {
   margin-top: 20px;
   padding-top: 20px;
   border-top: 2px dashed #f5d6c6;
 }
 
-.bamkabu-content .social-provider-link {
+.social-provider-link,
+.kc-social-provider-link,
+.zocial {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -137,12 +246,349 @@ body {
   margin-bottom: 10px;
 }
 
-.bamkabu-content .social-provider-link:hover {
+.social-provider-link:hover,
+.kc-social-provider-link:hover,
+.zocial:hover {
   background: #fff9f5;
   border-color: #e8a87c;
+  text-decoration: none;
 }
 
-/* Hearts Animation */
+/* ===================================
+   Links
+   =================================== */
+
+a {
+  color: #e8a87c;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: #d4886a;
+  text-decoration: underline;
+}
+
+/* ===================================
+   Alert Messages
+   =================================== */
+
+.alert,
+.pf-c-alert,
+.kc-feedback-text {
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.alert-error,
+.pf-m-danger,
+.alert-danger {
+  background: #ffe6e6;
+  border: 2px solid #ffb3b3;
+  color: #cc6666;
+}
+
+.alert-success,
+.pf-m-success {
+  background: #e6ffe6;
+  border: 2px solid #b3ffb3;
+  color: #66cc66;
+}
+
+.alert-warning,
+.pf-m-warning {
+  background: #fff9e6;
+  border: 2px solid #ffe6b3;
+  color: #cc9966;
+}
+
+.alert-info,
+.pf-m-info {
+  background: #e6f3ff;
+  border: 2px solid #b3d9ff;
+  color: #6699cc;
+}
+
+/* ===================================
+   OTP / TOTP Specific Styles
+   =================================== */
+
+.otp-input,
+.kc-otp-input,
+input.otp-code {
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 8px;
+  font-weight: 600;
+}
+
+.totp-qr,
+.kc-totp-qr,
+#kc-totp-qr {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  border: 2px solid #f5d6c6;
+}
+
+.totp-qr img,
+.kc-totp-qr img {
+  max-width: 200px;
+  border-radius: 10px;
+}
+
+.totp-secret,
+.kc-totp-secret {
+  background: #fff9f5;
+  padding: 15px;
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 14px;
+  word-break: break-all;
+  text-align: center;
+  margin: 15px 0;
+  border: 2px solid #f5d6c6;
+}
+
+/* ===================================
+   Password Reset / Update
+   =================================== */
+
+.password-requirements,
+.kc-password-requirements {
+  background: #fff9f5;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 15px 0;
+  border: 2px solid #f5d6c6;
+}
+
+.password-requirements li,
+.kc-password-requirements li {
+  margin: 5px 0;
+  color: #8b6f5c;
+  font-size: 13px;
+}
+
+.password-strength {
+  height: 8px;
+  border-radius: 4px;
+  background: #f5d6c6;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.password-strength-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.password-strength-weak { background: #ff6b6b; width: 33%; }
+.password-strength-medium { background: #ffc107; width: 66%; }
+.password-strength-strong { background: #66cc66; width: 100%; }
+
+/* ===================================
+   Form Groups & Sections
+   =================================== */
+
+.form-group,
+.kc-form-group,
+.pf-c-form__group {
+  margin-bottom: 20px;
+}
+
+.form-section,
+.kc-form-section {
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 2px dashed #f5d6c6;
+}
+
+.form-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* ===================================
+   Info & Help Text
+   =================================== */
+
+.info-text,
+.help-text,
+.kc-info-text,
+.instruction,
+small {
+  font-size: 13px;
+  color: #a89080;
+  margin-top: 5px;
+  display: block;
+}
+
+.required::after {
+  content: " *";
+  color: #e8a87c;
+}
+
+/* ===================================
+   List Styles
+   =================================== */
+
+ul, ol {
+  padding-left: 20px;
+  margin: 15px 0;
+}
+
+li {
+  margin: 8px 0;
+  color: #8b6f5c;
+}
+
+/* ===================================
+   Table Styles
+   =================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 2px solid #f5d6c6;
+}
+
+th {
+  background: #fff9f5;
+  color: #8b6f5c;
+  font-weight: 600;
+}
+
+tr:hover {
+  background: #fff9f5;
+}
+
+/* ===================================
+   Authenticator Selection
+   =================================== */
+
+.authenticator-list,
+.kc-authenticator-list {
+  list-style: none;
+  padding: 0;
+}
+
+.authenticator-item,
+.kc-authenticator-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin: 10px 0;
+  background: white;
+  border: 2px solid #f5d6c6;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.authenticator-item:hover,
+.kc-authenticator-item:hover {
+  border-color: #e8a87c;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(232, 168, 124, 0.2);
+}
+
+.authenticator-item.selected,
+.kc-authenticator-item.selected {
+  border-color: #e8a87c;
+  background: #fff9f5;
+}
+
+.authenticator-icon {
+  font-size: 24px;
+  margin-right: 15px;
+  color: #e8a87c;
+}
+
+/* ===================================
+   Recovery Codes
+   =================================== */
+
+.recovery-codes,
+.kc-recovery-codes {
+  background: #fff9f5;
+  border: 2px solid #f5d6c6;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.recovery-codes code,
+.kc-recovery-codes code {
+  display: block;
+  font-family: monospace;
+  font-size: 14px;
+  padding: 8px 0;
+  color: #8b6f5c;
+}
+
+/* ===================================
+   WebAuthn / Passkey
+   =================================== */
+
+.webauthn-icon,
+.passkey-icon {
+  font-size: 48px;
+  color: #e8a87c;
+  margin: 20px 0;
+}
+
+.webauthn-devices,
+.kc-webauthn-devices {
+  margin: 20px 0;
+}
+
+.webauthn-device-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background: white;
+  border: 2px solid #f5d6c6;
+  border-radius: 12px;
+  margin: 10px 0;
+}
+
+/* ===================================
+   Terms & Conditions
+   =================================== */
+
+.terms-content,
+.kc-terms-content {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 20px;
+  background: #fff9f5;
+  border: 2px solid #f5d6c6;
+  border-radius: 15px;
+  margin: 20px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ===================================
+   Hearts Animation
+   =================================== */
+
 .bamkabu-hearts {
   position: fixed;
   bottom: 20px;
@@ -169,38 +615,92 @@ body {
   50% { transform: translateY(-10px); }
 }
 
-/* Links */
-.bamkabu-content a {
-  color: #e8a87c;
-  text-decoration: none;
-  font-weight: 500;
+/* ===================================
+   Keycloak Default Class Overrides
+   =================================== */
+
+#kc-header-wrapper,
+#kc-header {
+  display: none;
 }
 
-.bamkabu-content a:hover {
-  text-decoration: underline;
+#kc-content-wrapper,
+#kc-content,
+#kc-form {
+  width: 100%;
 }
 
-/* Error Messages */
-.alert-error {
-  background: #ffe6e6;
-  border: 2px solid #ffb3b3;
-  border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 20px;
-  color: #cc6666;
+#kc-form-options {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 2px dashed #f5d6c6;
 }
 
-/* Responsive */
+#kc-form-buttons {
+  margin-top: 20px;
+}
+
+#kc-info-wrapper {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 2px dashed #f5d6c6;
+  text-align: center;
+}
+
+.kc-form-options-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Login Remember Me */
+#kc-form-options .checkbox {
+  display: flex;
+  align-items: center;
+}
+
+/* Forgot Password Link */
+.kc-form-options-wrapper a,
+#kc-form-options a {
+  font-size: 14px;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
 @media (max-width: 480px) {
   .bamkabu-card {
     padding: 30px 20px;
+    border-radius: 20px;
+    margin: 10px;
   }
-  
+
   .bamkabu-logo img {
     width: 140px;
   }
-  
+
   .bamkabu-title {
     font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .bamkabu-content input,
+  .bamkabu-content button,
+  .bamkabu-content select,
+  .bamkabu-content textarea {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+
+  .kc-form-options-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .totp-qr img {
+    max-width: 150px;
   }
 }

@@ -1,5 +1,4 @@
 ﻿import { Suspense, lazy } from "react";
-import type { ClassKey } from "keycloakify/login";
 import type { KcContext } from "./KcContext";
 import { useI18n } from "./i18n";
 import DefaultPage from "keycloakify/login/DefaultPage";
@@ -9,7 +8,11 @@ const Login = lazy(() => import("./pages/Login"));
 
 export default function KcPage(props: { kcContext: KcContext }) {
   const { kcContext } = props;
-  const { i18n } = useI18n({ kcContext });
+  const i18n = useI18n({ kcContext });
+
+  if (i18n === null) {
+    return null;
+  }
 
   return (
     <Suspense>
@@ -21,7 +24,7 @@ export default function KcPage(props: { kcContext: KcContext }) {
                 kcContext={kcContext}
                 i18n={i18n}
                 Template={Template}
-                classes={classes}
+                classes={{}}
               />
             );
           default:
@@ -30,7 +33,7 @@ export default function KcPage(props: { kcContext: KcContext }) {
                 kcContext={kcContext}
                 i18n={i18n}
                 Template={Template}
-                classes={classes}
+                classes={{}}
               />
             );
         }
@@ -38,5 +41,3 @@ export default function KcPage(props: { kcContext: KcContext }) {
     </Suspense>
   );
 }
-
-const classes = {} satisfies { [key in ClassKey]?: string };

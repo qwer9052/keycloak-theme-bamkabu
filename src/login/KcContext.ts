@@ -1,9 +1,3 @@
-﻿import { createGetKcContext } from "keycloakify/login";
+﻿import type { KcContext as KcContext_Login } from "keycloakify/login/KcContext";
 
-export type KcContextExtension = {};
-
-export const { getKcContext } = createGetKcContext<KcContextExtension>({});
-
-export const { kcContext } = getKcContext({});
-
-export type KcContext = NonNullable<typeof kcContext>;
+export type KcContext = KcContext_Login;
