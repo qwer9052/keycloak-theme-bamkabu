@@ -1,0 +1,1 @@
+﻿export { default as KcPage } from "./KcPage";
